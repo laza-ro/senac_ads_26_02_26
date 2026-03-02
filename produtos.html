@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,9 +30,9 @@
     <div class="container">
         <div class="row g-4">
 
-            <div class="col-md-4" style="">
+            <div class="col-md-4">
                 <div class="card">
-                    <img src="https://i.ytimg.com/vi/elkzsxGC5pM/maxresdefault.jpg" class="card-img-top" alt="...">
+                    <img src="https://i.ytimg.com/vi/elkzsxGC5pM/maxresdefault.jpg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Abóbora Cremosa</h5>
                         <p class="card-text">Abóbora cremosa com queijo, para quem busca algo acertivo.</p>
@@ -48,9 +52,9 @@
                 </div>    
             </div>
 
-            <div class="col-md-4" style="">
+            <div class="col-md-4">
                 <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX7_NpXKR-l7MW5Log2bZqXfERFG0toYCS0w&s" class="card-img-top" alt="...">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX7_NpXKR-l7MW5Log2bZqXfERFG0toYCS0w&s" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Sopa de macaco</h5>
                         <p class="card-text">Venha conhecer nossa nova iguaria! Sopa de macaco feita com macacos selvagens.</p>
@@ -68,9 +72,9 @@
                     </div>    
                 </div> 
             </div>    
-            <div class="col-md-4" style="">
+            <div class="col-md-4">
                 <div class="card">
-                    <img src="https://veja.abril.com.br/wp-content/uploads/2020/01/morcego1.jpg?crop=1&resize=1212,909" class="card-img-top" alt="...">
+                    <img src="https://veja.abril.com.br/wp-content/uploads/2020/01/morcego1.jpg?crop=1&resize=1212,909" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Sopa de morcego</h5>
                         <p class="card-text">Venha conhecer nossa nova iguaria! Sopa de morcego feita com morcegos selvagens.</p>
@@ -88,8 +92,8 @@
                     </div>
                 </div>    
             </div>    
-            <div class="alert alert-info text-center mt-4">
-                <h4>Valor Total: R$ <span id="valor-total">0,00</span></h4>
+            <div class="alert alert-dark text-center mt-4">
+                <h4>Total dos produtos: R$ <span id="valor-total">0,00</span></h4>
             </div>
         </div>
     </div>
