@@ -1,9 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <style>
         body {
             overflow-x: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef7 100%);
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #00d4ff !important;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #e8eef7;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 212, 255, 0.3);
         }
     </style>
     
@@ -13,15 +72,15 @@
     <title>Projeto Web Git + BootStrap</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <!-- Navbar content -->
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Título da empresa</a>
+            <a class="navbar-brand" href="#">🏢 Empresa Inovadora</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="navbar-nav ms-auto">
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 <a class="nav-link" href="produtos.html">Produtos</a>
                 <a class="nav-link" href="contatos.html">Contatos</a>
@@ -29,8 +88,40 @@
             </div>
         </div>
     </nav>
+    
     <div class="container">
-        <h1 class="text-primary text-center mt-5">Lançamento Oficial: Empresa Aleatória</h1>
+        <div class="hero">
+            <h1>🚀 Bem-vindo à Nossa Empresa</h1>
+            <p>Descubra produtos incríveis e únicos que vão transformar sua experiência</p>
+            <a href="produtos.html" class="btn btn-primary btn-lg">Conhecer Produtos</a>
+        </div>
+
+        <div class="row g-4 mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3>✨ Qualidade Premium</h3>
+                        <p class="card-text">Produtos selecionados com cuidado e qualidade garantida.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3>🚚 Entrega Rápida</h3>
+                        <p class="card-text">Envio rápido e seguro para qualquer lugar do país.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3>💬 Suporte 24/7</h3>
+                        <p class="card-text">Estamos sempre disponíveis para ajudar você.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
