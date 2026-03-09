@@ -125,3 +125,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+// Função assíncrona para carregar depoimentos
+async function carregarDepoimentos() {
+  try {
+    // Busca dados da API
+    const resposta = await fetch("https://jsonplaceholder.typicode.com/comments?_limit=3");
+    
+    // Converte para JSON
+    const dados = await resposta.json();
+
+    // Seleciona a div onde os cards serão inseridos
+    const lista = document.getElementById("lista-depoimentos");
+
+    // Percorre os dados recebidos
+    dados.forEach(depoimento => {
+      // Cria o card Bootstrap usando template string
+      const card = `
+        <div class="col-md-4 mb-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">${depoimento.name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${depoimento.email}</h6>
+              <p class="card-text">${depoimento.body}</p>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Insere o card na div
+      lista.innerHTML += card;
+    });
+
+  } catch (erro) {
+    console.error("Erro ao carregar depoimentos:", erro);
+  }
+}
+
+// Executa a função quando a página carregar
+carregarDepoimentos();
