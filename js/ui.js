@@ -194,3 +194,57 @@ export function renderizarDepoimentos(depoimentos) {
         lista.innerHTML += card;
     });
 }
+
+// ========== MODAL DE DETALHES DO PRODUTO ==========
+
+export function configurarModalDetalhes() {
+    const modalDetalhes = document.getElementById('modalDetalhes');
+    
+    if (!modalDetalhes) {
+        console.log("Modal de detalhes não encontrado na página");
+        return;
+    }
+    
+    // Event listener para quando o modal está sendo mostrado
+    modalDetalhes.addEventListener('show.bs.modal', function (event) {
+        // Botão que acionou o modal
+        const botao = event.relatedTarget;
+        
+        if (!botao) {
+            console.log("Botão que acionou o modal não encontrado");
+            return;
+        }
+        
+        // Lê os data attributes do botão
+        const nome = botao.getAttribute('data-nome') || 'Produto';
+        const descricao = botao.getAttribute('data-descricao') || 'Sem descrição';
+        const preco = botao.getAttribute('data-preco') || '0.00';
+        
+        console.log("Modal aberto para:", { nome, descricao, preco });
+        
+        // Atualiza o título do modal
+        const titulo = modalDetalhes.querySelector('#modalDetalhesLabel');
+        if (titulo) {
+            titulo.textContent = nome;
+        }
+        
+        // Atualiza o corpo do modal
+        const corpo = modalDetalhes.querySelector('#modalDetalhesBody');
+        if (corpo) {
+            corpo.innerHTML = `
+                <p><strong>Descrição:</strong> ${descricao}</p>
+                <p><strong>Preço:</strong> R$ ${parseFloat(preco).toLocaleString('pt-BR', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                })}</p>
+            `;
+        }
+        
+        // Armazena os dados do produto no botão "Adicionar ao Carrinho" para um possível próximo passo
+        const btnAdicionar = modalDetalhes.querySelector('.btn-adicionar-carrinho');
+        if (btnAdicionar) {
+            btnAdicionar.setAttribute('data-nome', nome);
+            btnAdicionar.setAttribute('data-preco', preco);
+        }
+    });
+}

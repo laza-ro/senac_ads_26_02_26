@@ -10,7 +10,8 @@ import {
     atualizarTotalProdutos, 
     atualizarVisualizacaoCarrinho, 
     adicionarAoCarrinho,
-    renderizarDepoimentos 
+    renderizarDepoimentos,
+    configurarModalDetalhes
 } from './ui.js';
 
 // ========== EVENT LISTENERS ==========
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     atualizarVisualizacaoCarrinho();
     atualizarTotalProdutos();
+    configurarModalDetalhes();
 
     // Adicionar eventos aos botões "Compre já!" (apenas se existirem)
     const botoesComprar = document.querySelectorAll('.btn-comprar');
@@ -32,6 +34,38 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         console.log("Listeners dos botões 'Compre já!' adicionados");
+    }
+
+    // Atualizando comportamento: remover listeners dos antigos botões "Compre já!" que agora são "Ver Detalhes"
+    const botoesDetalhes = document.querySelectorAll('.btn-detalhes');
+    if (botoesDetalhes.length > 0) {
+        botoesDetalhes.forEach(btn => {
+            btn.removeEventListener('click', function() {});
+        });
+    }
+
+    // Listener para o botão "Adicionar ao Carrinho" dentro do modal
+    const btnAdicionarCarrinho = document.querySelector('.btn-adicionar-carrinho');
+    if (btnAdicionarCarrinho) {
+        btnAdicionarCarrinho.addEventListener('click', function() {
+            const nome = this.getAttribute('data-nome');
+            const preco = this.getAttribute('data-preco');
+            
+            if (nome && preco) {
+                adicionarAoCarrinho(nome, preco);
+                mostrarAlerta(`${nome} adicionado ao carrinho!`, 'success');
+                
+                // Fechar o modal após adicionar ao carrinho
+                const modalDetalhes = document.getElementById('modalDetalhes');
+                if (modalDetalhes) {
+                    const modal = bootstrap.Modal.getInstance(modalDetalhes);
+                    if (modal) {
+                        modal.hide();
+                    }
+                }
+            }
+        });
+        console.log("Listener do botão 'Adicionar ao Carrinho' adicionado");
     }
 
     // Abrir modal ao clicar no botão do carrinho (apenas se existir)
